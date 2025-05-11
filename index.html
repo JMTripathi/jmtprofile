@@ -131,6 +131,26 @@
       margin: 6px 0;
     }
 
+    .gallery {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.gallery img {
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+    
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -197,7 +217,17 @@
       <li>♻️ Upcycled old materials into functional decor & tools</li>
     </ul>
   </section>
-
+  
+<section>
+  <h2>🖼️ DIY Project Gallery</h2>
+  <div class="gallery">
+    <img src="images/woodwork1.jpg" alt="Woodwork" />
+    <img src="images/painting1.jpg" alt="Painting" />
+    <img src="images/pi-lighting.jpg" alt="Smart Lighting" />
+    <img src="images/upcycle1.jpg" alt="Upcycling Project" />
+  </div>
+</section>
+  
   <section>
     <h2>🏆 Certifications</h2>
     <ul>
