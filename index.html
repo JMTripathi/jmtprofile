@@ -3,53 +3,64 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jainendra Mani Tripathi - Portfolio</title>
+  <title>Jainendra Mani Tripathi</title>
   <style>
     :root {
       --navy: #002b5c;
       --mustard: #f0ad00;
-      --background: #fdfbf4;
-      --card-bg: #ffffff;
-      --text: #333;
+      --gray-bg: #f9f9f9;
+      --white: #ffffff;
+      --highlight: #ffa500;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--background);
       margin: 0;
-      color: var(--text);
+      background: var(--gray-bg);
+      color: #333;
     }
 
     header {
-      background-color: var(--navy);
+      background: linear-gradient(to right, var(--navy), var(--mustard));
       color: #fff;
-      padding: 50px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.8em;
+      font-size: 3em;
     }
 
     header p {
-      font-size: 1.2em;
-      color: #ddd;
+      font-size: 1.3em;
+      color: #f9f9f9;
     }
 
     main {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 30px auto;
       padding: 20px;
     }
 
     section {
-      background-color: var(--card-bg);
-      border-left: 6px solid var(--mustard);
-      border-radius: 10px;
+      background: var(--white);
       margin-bottom: 30px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    section:nth-child(even) {
+      animation-delay: 0.3s;
     }
 
     h2 {
@@ -67,20 +78,41 @@
     }
 
     a:hover {
-      text-decoration: underline;
+      color: var(--highlight);
     }
 
     footer {
-      background-color: var(--navy);
-      color: #fff;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
+      background: var(--navy);
+      color: #fff;
     }
 
-    .tagline {
-      font-style: italic;
-      color: var(--mustard);
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--gray-bg);
+      border-left: 5px solid var(--mustard);
+      padding: 15px;
+      border-radius: 8px;
+      flex: 1 1 45%;
+      min-width: 280px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    }
+
+    .contact p {
+      margin: 6px 0;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -88,86 +120,63 @@
 
 <header>
   <h1>Jainendra Mani Tripathi</h1>
-  <p class="tagline">Tech Leader | DIY Enthusiast | Artist | FinTech Specialist</p>
+  <p>Tech Leader · Creative Builder · FinTech Architect</p>
 </header>
 
 <main>
   <section>
-    <h2>Professional Summary</h2>
-    <p>Associate Vice President at JPMorgan Chase with 15+ years in financial technology. Skilled in Java, Spring Boot, system integration, and risk/compliance platforms. A results-driven tech leader and passionate creator beyond code.</p>
+    <h2>👋 Welcome</h2>
+    <p>I’m a technologist and creative thinker blending enterprise-scale FinTech solutions with a hands-on love for building things — from scalable APIs to wooden shelves and landscape art. This is my digital space where code meets creativity.</p>
   </section>
 
   <section>
-    <h2>Creative & DIY Projects</h2>
-    <ul>
-      <li><strong>Woodworking & Carpentry:</strong> Designed custom wall shelves, workbenches, and modular units</li>
-      <li><strong>Painting:</strong> Created landscape and abstract art using acrylic and watercolor</li>
-      <li><strong>Home Automation:</strong> Raspberry Pi–based smart lighting and surveillance setup</li>
-      <li><strong>Upcycling Projects:</strong> Reimagined old furniture into artistic utility pieces</li>
-    </ul>
-    <p>These creative outlets fuel my problem-solving mindset and provide a sense of balance with my engineering role.</p>
+    <h2>💻 Technology & Innovation</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>FinTech Engineering</h3>
+        <p>Architected large-scale compliance systems, risk-screening tools, and APIs in the banking space using Java, Spring Boot, Drools, and Oracle.</p>
+      </div>
+      <div class="card">
+        <h3>DevOps & Cloud</h3>
+        <p>AWS Certified. Proficient in Jenkins, Terraform, CI/CD, containerized deployments and infrastructure automation.</p>
+      </div>
+      <div class="card">
+        <h3>UI & Frontend</h3>
+        <p>Experience with Angular, basic React, jQuery, and dynamic UI components with mxGraph and Node basics.</p>
+      </div>
+      <div class="card">
+        <h3>Scripting & Automation</h3>
+        <p>Python, Shell, and Selenium know-how for automation, monitoring, and workflow triggers.</p>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h2>Work Experience</h2>
-
-    <h3>JPMorgan Chase & Co., Bengaluru — Associate Vice President</h3>
-    <p><strong>Project:</strong> Sanctions System<br/>
-       <strong>Tech:</strong> Java, Spring Boot, Python, Oracle<br/>
-       <strong>Since:</strong> Jan 2019</p>
+    <h2>🎨 Creative & DIY Projects</h2>
     <ul>
-      <li>Developed risk-screening services for sanctions & compliance</li>
-      <li>Managed production pods, reviews, deployments</li>
-    </ul>
-
-    <h3>HPE Software, Bengaluru — Tech Lead</h3>
-    <p><strong>Projects:</strong> Service Governance Framework, SOM<br/>
-       <strong>Tech:</strong> Spring, REST, Apache Camel<br/>
-       
-    <ul>
-      <li>Built telecom APIs for network & service orchestration</li>
-      <li>Integrated systems for clients</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Skills & Expertise</h2>
-    <ul>
-      <li><strong>Backend:</strong> Java 8+, Spring Boot, Hibernate, Drools</li>
-      <li><strong>Frontend:</strong> Angular, React (Basics), jQuery</li>
-      <li><strong>Scripting:</strong> Python, Shell</li>
-      <li><strong>Cloud/DevOps:</strong> AWS (Certified), Jenkins, Terraform</li>
-      <li><strong>Databases:</strong> Oracle, PostgreSQL, MongoDB</li>
-      <li><strong>Tools:</strong> Git, JIRA, SOAP UI, Fortify, Jules</li>
+      <li>🪵 Built modular wooden racks, folding benches, and art-framed mirrors using repurposed materials</li>
+      <li>🎨 Acrylic and watercolor painting — landscapes, cityscapes, and bold abstracts</li>
+      <li>🔧 Raspberry Pi home projects: Smart lighting + CCTV integration</li>
+      <li>♻️ Upcycling enthusiast: Converting industrial waste into functional home decor</li>
     </ul>
   </section>
 
   <section>
-    <h2>Education & Certifications</h2>
+    <h2>🏆 Highlights & Certifications</h2>
     <ul>
-      <li>MCA – VTU, Bangalore</li>
       <li>Oracle Certified Java Programmer</li>
       <li>AWS Certified Cloud Practitioner</li>
-      <li>Terraform Associate (HashiCorp)</li>
-      <li>AWS AI Practitioner</li>
-      <li>SRE Bar Raiser – JPMorgan</li>
+      <li>Terraform Associate - HashiCorp</li>
+      <li>Certified AI Practitioner (AWS)</li>
+      <li>SRE Bar Raiser - JPMorgan</li>
     </ul>
   </section>
 
-  <section>
-    <h2>Personal</h2>
-    <ul>
-      <li><strong>Languages:</strong> English, Hindi, Bhojpuri</li>
-      <li><strong>Hobbies:</strong> DIY building, painting, trekking, music</li>      
-    </ul>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:jainendra.mailbox@gmail.com">jainendra.mailbox@gmail.com</a></p>
-    <p>Phone: +91-81972-16055</p>
-    <p>Website: <a href="https://www.jmtripathi.com" target="_blank">www.jmtripathi.com</a></p>
-    <p>GitHub: <a href="https://github.com/JMTripathi" target="_blank">JMTripathi</a></p>
+  <section class="contact">
+    <h2>📬 Connect With Me</h2>
+    <p><strong>Email:</strong> <a href="mailto:jainendra.mailbox@gmail.com">jainendra.mailbox@gmail.com</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/JMTripathi" target="_blank">JMTripathi</a></p>
+    <p><strong>Website:</strong> <a href="https://www.jmtripathi.com" target="_blank">www.jmtripathi.com</a></p>
   </section>
 </main>
 
