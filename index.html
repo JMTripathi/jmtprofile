@@ -6,11 +6,11 @@
   <title>Jainendra Mani Tripathi</title>
   <style>
     :root {
-      --navy: #002b5c;
-      --mustard: #f0ad00;
-      --gray-bg: #f9f9f9;
+      --dark-blue: #041C32;
+      --amber: #FFB200;
+      --teal: #00B4D8;
       --white: #ffffff;
-      --highlight: #ffa500;
+      --gray-bg: #f5f7fa;
     }
 
     * {
@@ -22,41 +22,57 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background: var(--gray-bg);
-      color: #333;
+      color: #222;
     }
 
     header {
-      background: linear-gradient(to right, var(--navy), var(--mustard));
+      background: linear-gradient(-45deg, var(--dark-blue), var(--amber), var(--teal));
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
       color: #fff;
-      padding: 60px 20px;
       text-align: center;
+      padding: 80px 20px 60px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     header h1 {
-      margin: 0;
-      font-size: 3em;
+      font-size: 3.2em;
+      margin: 0 0 10px;
     }
 
     header p {
-      font-size: 1.3em;
-      color: #f9f9f9;
+      font-size: 1.4em;
+      font-style: italic;
+      color: #fefefe;
     }
 
     main {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 20px;
+      max-width: 1280px;
+      margin: 40px auto;
+      padding: 20px 30px;
     }
 
     section {
       background: var(--white);
       margin-bottom: 30px;
-      border-radius: 10px;
-      padding: 25px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s forwards;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     }
 
     section:nth-child(even) {
@@ -64,7 +80,7 @@
     }
 
     h2 {
-      color: var(--navy);
+      color: var(--dark-blue);
       margin-top: 0;
     }
 
@@ -73,35 +89,42 @@
     }
 
     a {
-      color: var(--navy);
+      color: var(--teal);
       text-decoration: none;
     }
 
     a:hover {
-      color: var(--highlight);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: var(--navy);
-      color: #fff;
+      text-decoration: underline;
     }
 
     .grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 25px;
+      justify-content: space-between;
     }
 
     .card {
-      background: var(--gray-bg);
-      border-left: 5px solid var(--mustard);
-      padding: 15px;
-      border-radius: 8px;
+      background: #ffffff;
+      border-left: 5px solid var(--amber);
+      padding: 20px;
+      border-radius: 10px;
       flex: 1 1 45%;
       min-width: 280px;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--dark-blue);
+      color: #fff;
     }
 
     .contact p {
@@ -112,6 +135,20 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        flex-direction: column;
+      }
+
+      .card {
+        flex: 1 1 100%;
+      }
+
+      main {
+        padding: 10px;
       }
     }
   </style>
@@ -126,7 +163,7 @@
 <main>
   <section>
     <h2>👋 Welcome</h2>
-    <p>I’m a technologist and creative thinker blending enterprise-scale FinTech solutions with a hands-on love for building things — from scalable APIs to wooden shelves and landscape art. This is my digital space where code meets creativity.</p>
+    <p>I’m a technologist and creative thinker blending enterprise-scale FinTech solutions with a hands-on love for building things — from scalable APIs to wooden shelves and expressive art. This is my digital space where code meets creativity.</p>
   </section>
 
   <section>
@@ -134,19 +171,19 @@
     <div class="grid">
       <div class="card">
         <h3>FinTech Engineering</h3>
-        <p>Architected large-scale compliance systems, risk-screening tools, and APIs in the banking space using Java, Spring Boot, Drools, and Oracle.</p>
+        <p>Architected compliance and risk-screening solutions using Java, Spring Boot, Drools & Oracle for top-tier financial institutions.</p>
       </div>
       <div class="card">
         <h3>DevOps & Cloud</h3>
-        <p>AWS Certified. Proficient in Jenkins, Terraform, CI/CD, containerized deployments and infrastructure automation.</p>
+        <p>Automated pipelines and environments using AWS, Terraform, Jenkins, and containerization tools for faster, reliable deployment.</p>
       </div>
       <div class="card">
-        <h3>UI & Frontend</h3>
-        <p>Experience with Angular, basic React, jQuery, and dynamic UI components with mxGraph and Node basics.</p>
+        <h3>UI Engineering</h3>
+        <p>Angular and React basics, dynamic UIs using jQuery, mxGraph — built for clarity and function.</p>
       </div>
       <div class="card">
-        <h3>Scripting & Automation</h3>
-        <p>Python, Shell, and Selenium know-how for automation, monitoring, and workflow triggers.</p>
+        <h3>Scripting & APIs</h3>
+        <p>Built internal tooling with Python, shell scripts, and REST integrations to streamline and scale workflows.</p>
       </div>
     </div>
   </section>
@@ -154,29 +191,29 @@
   <section>
     <h2>🎨 Creative & DIY Projects</h2>
     <ul>
-      <li>🪵 Built modular wooden racks, folding benches, and art-framed mirrors using repurposed materials</li>
-      <li>🎨 Acrylic and watercolor painting — landscapes, cityscapes, and bold abstracts</li>
-      <li>🔧 Raspberry Pi home projects: Smart lighting + CCTV integration</li>
-      <li>♻️ Upcycling enthusiast: Converting industrial waste into functional home decor</li>
+      <li>🪚 Built custom woodwork: benches, planter stands, utility racks</li>
+      <li>🎨 Painted landscapes and abstracts using acrylic and watercolor</li>
+      <li>💡 Integrated Raspberry Pi projects for smart home lighting & security</li>
+      <li>♻️ Upcycled old materials into functional decor & tools</li>
     </ul>
   </section>
 
   <section>
-    <h2>🏆 Highlights & Certifications</h2>
+    <h2>🏆 Certifications</h2>
     <ul>
       <li>Oracle Certified Java Programmer</li>
       <li>AWS Certified Cloud Practitioner</li>
-      <li>Terraform Associate - HashiCorp</li>
-      <li>Certified AI Practitioner (AWS)</li>
-      <li>SRE Bar Raiser - JPMorgan</li>
+      <li>HashiCorp Terraform Associate</li>
+      <li>AWS AI Practitioner</li>
+      <li>SRE Bar Raiser – JPMorgan Chase</li>
     </ul>
   </section>
 
   <section class="contact">
     <h2>📬 Connect With Me</h2>
-    <p><strong>Email:</strong> <a href="mailto:jainendra.mailbox@gmail.com">jainendra.mailbox@gmail.com</a></p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/JMTripathi" target="_blank">JMTripathi</a></p>
-    <p><strong>Website:</strong> <a href="https://www.jmtripathi.com" target="_blank">www.jmtripathi.com</a></p>
+    <p>Email: <a href="mailto:jainendra.mailbox@gmail.com">jainendra.mailbox@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/JMTripathi" target="_blank">JMTripathi</a></p>
+    <p>Website: <a href="https://www.jmtripathi.com" target="_blank">www.jmtripathi.com</a></p>
   </section>
 </main>
 
