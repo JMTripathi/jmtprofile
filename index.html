@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jainendra Mani Tripathi</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
+
   <style>
     :root {
       --navy: #002b5c;
@@ -24,51 +25,73 @@
       scroll-behavior: smooth;
     }
 
-    /* HERO */
     .hero {
-      background: linear-gradient(135deg, var(--navy), var(--amber));
+      position: relative;
+      background: linear-gradient(135deg, #4B0082, #FF6F61, #FFC107);
+      background-size: 600% 600%;
+      animation: gradientShift 12s ease infinite;
       color: white;
       text-align: center;
-      padding: 100px 20px 60px;
-      position: relative;
+      padding: 120px 20px 80px;
       overflow: hidden;
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 80px;
-      width: 100%;
-      background: url('https://www.svgbackgrounds.com/wp-content/uploads/2021/06/wave-haikei.svg') no-repeat center/cover;
-      transform: scaleX(-1);
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
+      font-size: 3.2em;
+      margin: 10px 0;
     }
 
     .hero p {
       font-size: 1.2em;
-      color: #fefefe;
-      margin-bottom: 30px;
+      color: #eee;
+      margin-bottom: 25px;
     }
 
     .hero .cta {
-      padding: 12px 24px;
       background: white;
-      color: var(--navy);
-      border-radius: 25px;
+      color: #333;
+      padding: 12px 28px;
       font-weight: bold;
+      border-radius: 30px;
       text-decoration: none;
       transition: all 0.3s ease;
     }
 
     .hero .cta:hover {
-      background: var(--teal);
-      color: #fff;
+      background: #00b4d8;
+      color: white;
+    }
+
+    #bg-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     main {
@@ -113,6 +136,10 @@
       transform: translateY(-5px);
     }
 
+    ul {
+      padding-left: 20px;
+    }
+
     .gallery {
       display: flex;
       gap: 15px;
@@ -153,6 +180,11 @@
       color: white;
     }
 
+    iframe {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -164,6 +196,7 @@
       .grid {
         flex-direction: column;
       }
+
       .card {
         flex: 1 1 100%;
       }
@@ -173,18 +206,20 @@
 <body>
 
 <section class="hero">
-  <h1>Jainendra Mani Tripathi</h1>
-  <p>Creative Technologist · DIY Builder · FinTech Architect</p>
-  <a href="#contact" class="cta">Let’s Collaborate</a>
+  <div class="hero-content">
+    <img src="images/jmt.jpeg" alt="Jainendra" class="avatar" />
+    <h1>Jainendra Mani Tripathi</h1>
+    <p>Creative Technologist · FinTech Architect · DIY Builder</p>
+    <a href="#contact" class="cta">Let’s Collaborate</a>
+  </div>
+  <canvas id="bg-animation"></canvas>
 </section>
 
 <main>
 
   <section>
     <h2>👋 Welcome</h2>
-    <p>I’m a technologist and creative thinker blending enterprise-scale FinTech solutions with a hands-on 
-love for building things — from scalable APIs to wooden shelves and expressive art. I believe innovation thrives where engineering meets creativity.  This is my digital 
-space where code meets creativity</p>
+    <p>I’m a technologist and creative thinker blending enterprise-scale FinTech solutions with hands-on DIY projects. This is my digital space where code meets creativity — and business meets imagination.</p>
   </section>
 
   <section>
@@ -244,7 +279,13 @@ space where code meets creativity</p>
     <h2>📬 Let’s Connect</h2>
     <a href="mailto:jainendra.mailbox@gmail.com">Email Me</a>
     <a href="https://github.com/JMTripathi" target="_blank">GitHub</a>
-    <a href="https://www.jmtripathi.com" target="_blank">My Website</a>
+    <a href="https://www.jmtripathi.com" target="_blank">Website</a>
+    <a href="assets/resume-jainendra-tripathi.pdf" target="_blank" download>📄 Download My Resume</a>
+  </section>
+
+  <section>
+    <h2>📄 Resume Preview</h2>
+    <iframe src="assets/resume-jainendra-tripathi.pdf" width="100%" height="600px"></iframe>
   </section>
 
 </main>
@@ -253,6 +294,60 @@ space where code meets creativity</p>
   &copy; 2025 Jainendra Mani Tripathi
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<!-- Lightbox -->
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
+<!-- Particle Background -->
+<script>
+  const canvas = document.getElementById('bg-animation');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.querySelector('.hero').offsetHeight;
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function Particle() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.radius = Math.random() * 2 + 1;
+    this.dx = (Math.random() - 0.5) * 0.5;
+    this.dy = (Math.random() - 0.5) * 0.5;
+    this.color = `rgba(255, 255, 255, ${Math.random()})`;
+  }
+
+  Particle.prototype.update = function () {
+    this.x += this.dx;
+    this.y += this.dy;
+    if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
+  };
+
+  Particle.prototype.draw = function () {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  };
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  for (let i = 0; i < 100; i++) {
+    particles.push(new Particle());
+  }
+
+  animate();
+</script>
 </body>
 </html>
