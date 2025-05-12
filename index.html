@@ -1,78 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jainendra Mani Tripathi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
     :root {
-      --dark-blue: #041C32;
-      --amber: #FFB200;
-      --teal: #00B4D8;
-      --white: #ffffff;
-      --gray-bg: #f5f7fa;
-    }
-
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+      --navy: #002b5c;
+      --amber: #ffb200;
+      --teal: #00b4d8;
+      --background: #f9f9f9;
+      --dark: #222;
+      --font: 'Quicksand', sans-serif;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: var(--gray-bg);
-      color: #222;
+      font-family: var(--font);
+      background: var(--background);
+      color: var(--dark);
+      scroll-behavior: smooth;
     }
 
-    header {
-      background: linear-gradient(-45deg, var(--dark-blue), var(--amber), var(--teal));
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
-      color: #fff;
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--navy), var(--amber));
+      color: white;
       text-align: center;
-      padding: 80px 20px 60px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 100px 20px 60px;
+      position: relative;
+      overflow: hidden;
     }
 
-    @keyframes gradientShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 80px;
+      width: 100%;
+      background: url('https://www.svgbackgrounds.com/wp-content/uploads/2021/06/wave-haikei.svg') no-repeat center/cover;
+      transform: scaleX(-1);
     }
 
-    header h1 {
-      font-size: 3.2em;
-      margin: 0 0 10px;
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
     }
 
-    header p {
-      font-size: 1.4em;
-      font-style: italic;
+    .hero p {
+      font-size: 1.2em;
       color: #fefefe;
+      margin-bottom: 30px;
+    }
+
+    .hero .cta {
+      padding: 12px 24px;
+      background: white;
+      color: var(--navy);
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .hero .cta:hover {
+      background: var(--teal);
+      color: #fff;
     }
 
     main {
-      max-width: 1280px;
-      margin: 40px auto;
-      padding: 20px 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
     section {
-      background: var(--white);
-      margin-bottom: 30px;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      margin-bottom: 50px;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
       animation: fadeInUp 1s forwards;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     }
 
     section:nth-child(even) {
@@ -80,77 +89,70 @@
     }
 
     h2 {
-      color: var(--dark-blue);
-      margin-top: 0;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    a {
-      color: var(--teal);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      font-size: 2em;
+      color: var(--navy);
+      margin-bottom: 15px;
     }
 
     .grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 25px;
-      justify-content: space-between;
+      gap: 20px;
     }
 
     .card {
-      background: #ffffff;
-      border-left: 5px solid var(--amber);
-      padding: 20px;
-      border-radius: 10px;
+      background: white;
       flex: 1 1 45%;
-      min-width: 280px;
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    .gallery {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .gallery img {
+      height: 200px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 10px 20px;
+      background: var(--amber);
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      background: var(--teal);
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: var(--dark-blue);
-      color: #fff;
+      background: var(--navy);
+      color: white;
     }
 
-    .contact p {
-      margin: 6px 0;
-    }
-
-    .gallery {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  padding: 10px 0;
-  scroll-behavior: smooth;
-}
-
-.gallery img {
-  height: 200px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-    
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -162,48 +164,47 @@
       .grid {
         flex-direction: column;
       }
-
       .card {
         flex: 1 1 100%;
-      }
-
-      main {
-        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
+<section class="hero">
   <h1>Jainendra Mani Tripathi</h1>
-  <p>Tech Leader · Creative Builder · FinTech Architect</p>
-</header>
+  <p>Creative Technologist · DIY Builder · FinTech Architect</p>
+  <a href="#contact" class="cta">Let’s Collaborate</a>
+</section>
 
 <main>
+
   <section>
     <h2>👋 Welcome</h2>
-    <p>I’m a technologist and creative thinker blending enterprise-scale FinTech solutions with a hands-on love for building things — from scalable APIs to wooden shelves and expressive art. This is my digital space where code meets creativity.</p>
+    <p>I’m a technologist and creative thinker blending enterprise-scale FinTech solutions with a hands-on 
+love for building things — from scalable APIs to wooden shelves and expressive art. I believe innovation thrives where engineering meets creativity.  This is my digital 
+space where code meets creativity</p>
   </section>
 
   <section>
-    <h2>💻 Technology & Innovation</h2>
+    <h2>💻 What I Do</h2>
     <div class="grid">
       <div class="card">
-        <h3>FinTech Engineering</h3>
-        <p>Architected compliance and risk-screening solutions using Java, Spring Boot, Drools & Oracle for top-tier financial institutions.</p>
+        <h3>FinTech Systems</h3>
+        <p>Built scalable systems for compliance, APIs, and orchestration using Java, Spring Boot, Drools, and Oracle.</p>
       </div>
       <div class="card">
         <h3>DevOps & Cloud</h3>
-        <p>Automated pipelines and environments using AWS, Terraform, Jenkins, and containerization tools for faster, reliable deployment.</p>
+        <p>Terraform, Jenkins, GitHub Actions, AWS — streamlined pipelines and infrastructure as code.</p>
       </div>
       <div class="card">
-        <h3>UI Engineering</h3>
-        <p>Angular and React basics, dynamic UIs using jQuery, mxGraph — built for clarity and function.</p>
+        <h3>UI & Integrations</h3>
+        <p>Angular, React Basics, mxGraph, RESTful integration with real-time backend services.</p>
       </div>
       <div class="card">
-        <h3>Scripting & APIs</h3>
-        <p>Built internal tooling with Python, shell scripts, and REST integrations to streamline and scale workflows.</p>
+        <h3>Scripting & Tools</h3>
+        <p>Python, Shell, and automation tools for testing, monitoring, and deployment optimization.</p>
       </div>
     </div>
   </section>
@@ -211,23 +212,23 @@
   <section>
     <h2>🎨 Creative & DIY Projects</h2>
     <ul>
-      <li>🪚 Built custom woodwork: benches, planter stands, utility racks</li>
-      <li>🎨 Painted landscapes and abstracts using acrylic and watercolor</li>
-      <li>💡 Integrated Raspberry Pi projects for smart home lighting & security</li>
-      <li>♻️ Upcycled old materials into functional decor & tools</li>
+      <li>Custom furniture from reclaimed wood</li>
+      <li>Landscape paintings with acrylic & watercolor</li>
+      <li>Raspberry Pi smart automation for lighting & security</li>
+      <li>Upcycled tools and artistic utilities</li>
     </ul>
   </section>
-  
-<section>
-  <h2>🖼️ DIY Project Gallery</h2>
-  <div class="gallery">
-    <img src="images/woodwork1.jpg" alt="Woodwork" />
-    <img src="images/painting1.jpg" alt="Painting" />
-    <img src="images/pi-lighting.jpg" alt="Smart Lighting" />
-    <img src="images/upcycle1.jpg" alt="Upcycling Project" />
-  </div>
-</section>
-  
+
+  <section>
+    <h2>🖼️ DIY Project Gallery</h2>
+    <div class="gallery">
+      <a href="images/woodwork1.jpg" data-lightbox="diy"><img src="images/woodwork1.jpg" alt="Woodwork" /></a>
+      <a href="images/painting1.jpg" data-lightbox="diy"><img src="images/painting1.jpg" alt="Painting" /></a>
+      <a href="images/pi-lighting.jpg" data-lightbox="diy"><img src="images/pi-lighting.jpg" alt="Smart Lighting" /></a>
+      <a href="images/upcycle1.jpg" data-lightbox="diy"><img src="images/upcycle1.jpg" alt="Upcycling" /></a>
+    </div>
+  </section>
+
   <section>
     <h2>🏆 Certifications</h2>
     <ul>
@@ -239,17 +240,19 @@
     </ul>
   </section>
 
-  <section class="contact">
-    <h2>📬 Connect With Me</h2>
-    <p>Email: <a href="mailto:jainendra.mailbox@gmail.com">jainendra.mailbox@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/JMTripathi" target="_blank">JMTripathi</a></p>
-    <p>Website: <a href="https://www.jmtripathi.com" target="_blank">www.jmtripathi.com</a></p>
+  <section id="contact" class="contact">
+    <h2>📬 Let’s Connect</h2>
+    <a href="mailto:jainendra.mailbox@gmail.com">Email Me</a>
+    <a href="https://github.com/JMTripathi" target="_blank">GitHub</a>
+    <a href="https://www.jmtripathi.com" target="_blank">My Website</a>
   </section>
+
 </main>
 
 <footer>
-  &copy; 2025 Jainendra Mani Tripathi. All rights reserved.
+  &copy; 2025 Jainendra Mani Tripathi
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
