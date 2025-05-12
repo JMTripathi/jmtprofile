@@ -25,7 +25,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Hero Section */
     .hero {
       position: relative;
       background: linear-gradient(-45deg, #4B0082, #FF6F61, #FFC107);
@@ -45,7 +44,7 @@
 
     .hero-content {
       position: relative;
-      z-index: 2; /* Bring content above the canvas */
+      z-index: 2;
     }
 
     .avatar {
@@ -96,6 +95,7 @@
       left: 0;
       width: 100%;
       height: 100%;
+      min-height: 300px;
       z-index: 1;
       opacity: 0.2;
       pointer-events: none;
@@ -180,18 +180,18 @@
       background: var(--teal);
     }
 
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
       background: var(--navy);
       color: white;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
 
     @keyframes fadeInUp {
@@ -293,7 +293,10 @@
     <a href="resume-jainendra-tripathi.pdf" target="_blank" download>📄 Download My Resume</a>
   </section>
 
- 
+  <section>
+    <h2>📄 Resume Preview</h2>
+    <iframe src="resume-jainendra-tripathi.pdf"></iframe>
+  </section>
 
 </main>
 
@@ -306,55 +309,57 @@
 
 <!-- Background Particle Animation -->
 <script>
-  const canvas = document.getElementById('bg-animation');
-  const ctx = canvas.getContext('2d');
-  let particles = [];
+  window.onload = function () {
+    const canvas = document.getElementById('bg-animation');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = document.querySelector('.hero').offsetHeight;
-  }
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = document.querySelector('.hero').offsetHeight;
+    }
 
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-  function Particle() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.radius = Math.random() * 2 + 1;
-    this.dx = (Math.random() - 0.5) * 0.5;
-    this.dy = (Math.random() - 0.5) * 0.5;
-    this.color = `rgba(255, 255, 255, ${Math.random()})`;
-  }
+    function Particle() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.radius = Math.random() * 2 + 1;
+      this.dx = (Math.random() - 0.5) * 0.5;
+      this.dy = (Math.random() - 0.5) * 0.5;
+      this.color = `rgba(255, 255, 255, ${Math.random()})`;
+    }
 
-  Particle.prototype.update = function () {
-    this.x += this.dx;
-    this.y += this.dy;
-    if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
+    Particle.prototype.update = function () {
+      this.x += this.dx;
+      this.y += this.dy;
+      if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
+    };
+
+    Particle.prototype.draw = function () {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    };
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+
+    animate();
   };
-
-  Particle.prototype.draw = function () {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  };
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-    requestAnimationFrame(animate);
-  }
-
-  for (let i = 0; i < 100; i++) {
-    particles.push(new Particle());
-  }
-
-  animate();
 </script>
 </body>
 </html>
